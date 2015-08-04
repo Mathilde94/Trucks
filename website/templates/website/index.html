@@ -1,0 +1,84 @@
+{% extends "website/template.html" %}
+
+{% block content %}
+
+<div id="trucks">
+
+  <div id="parameters">
+
+    <form id="getTrucks">
+
+      <div class="param form-group">
+        <label for="category">Category</label>
+        <select id="category" class="form-control">
+          {% for cat in categories %}
+            <option values="{{ cat }}"> {{ cat }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="param form-group" style="display:none">
+        <label for="latitude">Latitude</label>
+        <input type="text" id="latitude" class="form-control">
+      </div>
+
+      <div class="param form-group" style="display:none">
+        <label for="longitude">Longitude</label>
+        <input type="text" id="longitude" class="form-control">
+      </div>
+
+      <div class="param form-group"> 
+        <i>Change the location by right clicking on the map.</i>
+      </div>
+
+      <div class="param form-group">  
+        <label for="radius">Radius in Miles</label>
+        <!-- <input type="text" id="radius" class="form-control"> -->
+        <div class="row"> 
+          <div class="col-xs-6"> 
+            <div class="range range-primary"> 
+              <input id="radius" type="range" name="range" min="0" max="10" 
+                   value="1" onchange="rangePrimary.value=value"> 
+              <output id="rangePrimary">1</output> 
+            </div> 
+          </div> 
+        </div> 
+      </div>
+      
+      <button id="getListTrucks" class="form-control btn-default" >
+        Update list of Trucks
+      </button>
+
+    </form>
+    
+    <div id="categories_list">
+      <div id="total"></div>
+      <div id="list">
+        <script id="categoryTemplate" type="text/template">
+          <ul style="background-color:<%= color %>">
+            <li> <%= name %>: <%= count %></li>
+        </script>
+	</div>
+    </div>
+
+    <div id="trucks_list">
+      <div id="total"></div>
+      <div id="list">
+        <script id="truckTemplate" type="text/template">
+          <ul>
+            <li> <%= applicant %></li>
+            <li> <%= category %> </li>
+        </script>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="map_container">
+
+
+  </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+#! /bin/sh
+
+# This file needs to be in the /etcinit.d with name django
+
+### BEGIN INIT INFO
+### END INIT INFO
+
+DJANGO_PROJECT='/home/ubuntu/truckssf'
+
+start_django()
+{
+  nohup sudo python $DJANGO_PROJECT/manage.py runserver 0.0.0.0:80 &
+
+}
+
+stop_django()
+{
+   kill -9 $(ps aux | grep runserver | awk '{print $2}')
+}
+
+case "$1" in
+  start)
+        start_django
+	;;
+
+  stop)
+        stop_django
+	;;
+
+  restart)
+        stop_django
+        start_django
+        ;;
+esac
+
+exit 0

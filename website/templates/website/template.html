@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0", <meta charset="utf-8">
+    <title>Trucks SF</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/trucks.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/roboto.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/range.css">
+
+  </head>
+
+  <header>
+    San Francisco Trucks
+  </header>
+
+  <body>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="{{ STATIC_URL }}js/underscore.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.3.min.js"></script>
+    <script src="{{ STATIC_URL }}js/backbone-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>    
+    <script src="{{ STATIC_URL }}js/gmaps.js"></script>
+    <script src="{{ STATIC_URL }}js/app.js"></script>  
+
+  </body>
+
+
+</html>
